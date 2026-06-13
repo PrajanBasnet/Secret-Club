@@ -46,7 +46,7 @@ async function signupPost(req, res, next) {
     let hasedPassword = await bcrypt.hash(password, 10);
     await db.query(`INSERT INTO  users (firstname,lastname,username,password) 
     VALUES ($1,$2,$3,$4)`, [firstname, lastname, username, hasedPassword]);
-    res.send("/auth/login");
+    res.redirect("/auth/login");
 }
 
 module.exports = {

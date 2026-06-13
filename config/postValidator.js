@@ -20,9 +20,13 @@ const postValidator = [
     body("description").trim().isEmpty().withMessage("Must not be empty")
 ]
 
+const validateRiddle = [
+    body("riddle").trim().isEmpty("Riddle is require to post")
+]
 
 
 module.exports = {
     postValidator,
-    validateSignup
+    validateSignup,
+    validateRiddle
 }
