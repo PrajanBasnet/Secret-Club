@@ -1,66 +1,135 @@
-🔐 Secret Club (Member Only Posting System)
+# 🔐 Members Only Club
 
-A full-stack web application where users can sign up, create posts, and view content based on membership status. The platform hides author identities by default — only users who unlock the secret password (passport) can see who wrote each post.
+A private, members-only message board where anonymity is the default — and a secret passphrase is the key to the truth.
 
-🚀 Features
-👤 User Signup & Login system
-🔐 Session-based authentication (Passport.js)
-📝 Create and view posts (members only)
-🕵️ Anonymous post viewing (default mode)
-🧠 Secret “passport” system to reveal post authors
-🔒 Role-based access control (guest vs member)
-⚡ PostgreSQL database integration
-🧩 How It Works
-Users must sign up and log in to access the platform
-All logged-in users can:
-View posts
-Create posts
-However:
-Post usernames are hidden by default
-To reveal post authors:
-Users must solve a secret riddle / enter a password
-Once verified, their member_status is updated in the database
-They gain access to see post authors
-🛠️ Tech Stack
-Backend: Node.js, Express.js
-Authentication: Passport.js
-Database: PostgreSQL
-Templating Engine: EJS
-Styling: Tailwind CSS (or your setup)
-Session Management: express-session
-📁 Project Structure
-/controllers
-/routes
-/views
-/models
-/db
-app.js
-⚙️ Installation
-git clone https://github.com/your-username/secret-club.git
-cd secret-club
-npm install
-🔑 Environment Variables
+---
 
-Create a .env file:
+## 📖 About
 
-DB_USER=your_user
-DB_HOST=localhost
-DB_NAME=your_database
-DB_PASSWORD=your_password
-SESSION_SECRET=your_secret
-▶️ Run the Project
-npm start
+Members Only Club is a full-stack web application built around a simple but interesting social mechanic:
 
-Server runs on:
+- **Anyone** can sign up and join the club
+- **Members** can read all posts on the board
+- **But** — the author of every post is hidden by default
+- **Only** members who know the **secret passphrase** can unlock author visibility and see who wrote what
 
-http://localhost:3000
-🔐 Authentication Flow
-User signs up / logs in
-User can view posts anonymously (no author names)
-User enters secret password (riddle system)
+It's a little mysterious. That's the point.
 
+---
 
+## ✨ Features
 
-👨‍💻 Author
-Developed by: Prajan Basnet
-Inspired by building real-world authentication systems
+- 🔒 **Authentication** — Secure sign-up and login system
+- 📝 **Post Board** — Members can create and read posts after logging in
+- 👤 **Anonymous by Default** — Post authors are hidden from regular members
+- 🗝️ **Secret Passphrase** — Enter the passphrase to reveal author names across all posts
+- 🛡️ **Route Protection** — Non-members are blocked from viewing the board
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Backend | Node.js, Express |
+| Database | PostgreSQL |
+| Authentication | Passport.js, bcrypt, express-session |
+| Frontend | EJS (or React) |
+| Environment | dotenv |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js v18+
+- PostgreSQL
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/members-only-club.git
+   cd members-only-club
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up the database**
+   ```bash
+   psql -U postgres -f db/schema.sql
+   ```
+
+4. **Configure environment variables**
+
+   Create a `.env` file in the root directory:
+   ```env
+   DATABASE_URL=postgresql://username:password@localhost:5432/members_only
+   SESSION_SECRET=your_session_secret_here
+   SECRET_PASSPHRASE=your_secret_passphrase_here
+   PORT=3000
+   ```
+
+5. **Start the server**
+   ```bash
+   npm start
+   ```
+
+6. Open your browser and go to `http://localhost:3000`
+
+---
+
+## 🔑 How the Passphrase Works
+
+After signing up and logging in, users land on the message board. All posts are visible, but the **author field is hidden**.
+
+To reveal author names:
+
+1. Navigate to the **"Unlock"** or **"Enter Passphrase"** page
+2. Enter the secret passphrase
+3. If correct, your account is upgraded — you can now see **who wrote every post**
+
+This status persists in your session/account until you log out.
+
+---
+
+## 📁 Project Structure
+
+```
+members-only-club/
+├── db/
+│   └── schema.sql          # Database schema
+├── routes/
+│   ├── auth.js             # Sign up / login / logout
+│   ├── posts.js            # View and create posts
+│   └── passphrase.js       # Secret passphrase unlock
+├── middleware/
+│   └── auth.js             # Route protection middleware
+├── views/                  # EJS templates (or React components)
+├── public/                 # Static assets
+├── app.js                  # Express app entry point
+├── .env.example            # Environment variable template
+└── README.md
+```
+
+---
+
+## 📸 Screenshots
+
+> _Add screenshots here once the UI is ready_
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+
+---
+
+## 📄 License
+
+[MIT](LICENSE)
