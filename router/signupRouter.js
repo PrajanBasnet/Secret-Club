@@ -9,6 +9,7 @@ const { isGuest }= require("../config/isAuth");
 router.get("/signup",signupController.signup);
 router.post("/signup",validateSignup,signupController.signupPost);
 router.get("/login",isGuest,signupController.login);
+router.post("/logout",signupController.logoutUser);
 
 router.post("/login",passport.authenticate("local",{
     successRedirect:"/dashboard",

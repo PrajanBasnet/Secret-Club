@@ -1,1 +1,11 @@
 @import "tailwindcss";
+@source "../views/**/*.ejs";
+
+dialog {
+  margin: auto;
+}
+
+#my-dialog{
+    padding: 2rem;
+    max-width: 80ch;
+}

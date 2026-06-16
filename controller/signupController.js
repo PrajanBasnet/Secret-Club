@@ -48,10 +48,19 @@ async function signupPost(req, res, next) {
     VALUES ($1,$2,$3,$4)`, [firstname, lastname, username, hasedPassword]);
     res.redirect("/auth/login");
 }
-
+async function  logoutUser (req ,res,next) {
+    
+    req.logout((err)=>{
+        if(err){
+            return next(err);
+        }
+        res.redirect("/dashboard");
+    })
+}
 module.exports = {
     signup,
     signupPost,
     login,
+    logoutUser,
     
 }
