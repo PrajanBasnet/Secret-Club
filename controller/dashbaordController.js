@@ -1,4 +1,4 @@
-// const db = require("../db/db");
+
 const { viewPostQuery } = require("../db/postDb");
 
 async  function dashboard(req,res,next){

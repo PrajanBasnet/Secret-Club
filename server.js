@@ -5,7 +5,6 @@ const dashboard = require("./router/dashboardRouter");
 const riddle  = require("./router/riddleRouter");
 const post = require("./router/postRouter");
 
-
 const passport = require("passport");
 const session = require("express-session");
 const app = express();
@@ -45,5 +44,5 @@ app.use("/riddle",riddle);
 
 
 app.listen(PORT,()=>{
-    console.log("Server running on PORT 300");
+    console.log("Server running on PORT 3000");
 })
