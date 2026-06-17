@@ -13,6 +13,9 @@ require("dotenv").config();
 require("./controller/signupController");
 const flash = require("connect-flash");
 
+
+const PORT = process.env.PORT || 3000;
+
 //middle ware
 
 app.use(session({
@@ -41,6 +44,6 @@ app.use('/post',post);
 app.use("/riddle",riddle);
 
 
-app.listen(process.env.PORT,()=>{
+app.listen(PORT,()=>{
     console.log("Server running on PORT 300");
 })
