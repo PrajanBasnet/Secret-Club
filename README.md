@@ -120,7 +120,8 @@ members-only-club/
 
 ## 📸 Screenshots
 
-> _Add screenshots here once the UI is ready_
+> <img width="2534" height="1240" alt="image" src="https://github.com/user-attachments/assets/b342a145-6abf-4882-b33d-e84640b4ec6d" />
+
 
 ---
 
